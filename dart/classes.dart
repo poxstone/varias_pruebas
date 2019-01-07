@@ -3,6 +3,7 @@ void main() {
   namedParams();
   extededClass();
   paramObjectClass();
+  interfaceClass();
 }
 
 
@@ -57,21 +58,45 @@ class SimpleClass {
     this.value1 = value;
   }
 }
+class MixinClass {
+  void sayHello(){
+    print('I mixin saying hello');
+  }
+}
 class ExtededClassA extends SimpleClass {
   ExtededClassA(value1) {
     super._value1 = value1;
   }
 }
-class ExtededClassB extends SimpleClass {
+class ExtededClassB extends SimpleClass with MixinClass {
   ExtededClassB(value1): super(value:value1);
 }
+class ExtededClassC with MixinClass {}
 extededClass() {
   var o1 = new ExtededClassA('Valor A');
   print('ExtededClassA = ${o1.value1}');
   var o2 = new ExtededClassB('Valor B');
   print('ExtededClassB = ${o2.value1}');
+  var o3 = new ExtededClassB('Valor C');
+  o3.sayHello();
 }
 
+
+/* interfaces */
+class InterfaceClass{
+  int _number;
+}
+class InterfaceClassExtend implements InterfaceClass{
+  @override
+  int _number;
+
+  InterfaceClassExtend(this._number);
+  get number => _number;
+}
+interfaceClass(){
+  var o = InterfaceClassExtend(1);
+  print('ExtededClassB = ${o.number}');
+}
 
 class ParamObjectClass {
   Map<dynamic, String> map;
@@ -81,3 +106,5 @@ paramObjectClass() {
   var o = ParamObjectClass({'variable': 'hola'});
   print('ParamObjectClass = ${o.map}');
 }
+
+

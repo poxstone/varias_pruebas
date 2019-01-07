@@ -1,5 +1,6 @@
 void main() {
   test(true);
+  print(1.abs());
 }
 
 test(val) {
