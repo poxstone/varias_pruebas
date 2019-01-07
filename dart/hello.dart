@@ -1,17 +1,11 @@
-voiod main() {
+void main() {
+  test(true);
+}
 
-  var example5method = "Example5 sayIt";
-  class Example5Class {
-      sayIt() {
-            print(example5method);
-              }
+test(val) {
+  var a = val ? 'a' : 'b';
+
+  if ( false || '' == '') {
+    print(a);
   }
-  example5() {
-      // Create an anonymous instance of the Example5Class and call the sayIt
-      // method on it.
-      new Example5Class().sayIt();
-  }
-
-
-
 }
